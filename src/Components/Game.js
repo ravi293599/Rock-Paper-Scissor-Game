@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React ,{useCallback, useState} from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -13,35 +13,35 @@ const Game = ({ score, myChoice, setScore }) => {
     setHouse(choices[Math.floor(Math.random()*3)]);
   }
 
-  const Result = () =>{
+  const Result = useCallback(()=>{
     if(myChoice === "rock" && house === "scissors"){
       setPlayerWin("win");
-      setScore(score+1);
+      setScore((prevScore) => prevScore + 1);
     }
     else if(myChoice === "scissors" && house === "rock"){
       setPlayerWin("lose");
-      setScore(score-1);
+      setScore((prevScore) => prevScore - 1);
     }
     else if(myChoice === "scissors" && house === "paper"){
       setPlayerWin("win");
-      setScore(score+1);
+      setScore((prevScore) => prevScore + 1);
     }
     else if(myChoice === "paper" && house === "scissors"){
       setPlayerWin("lose");
-      setScore(score-1);
+      setScore((prevScore) => prevScore - 1);
     }
     else if(myChoice === "paper" && house === "rock"){
       setPlayerWin("win");
-      setScore(score+1);
+      setScore((prevScore) => prevScore + 1);
     }
     else if(myChoice === "rock" && house === "paper"){
       setPlayerWin("lose");
-      setScore(score-1);
+      setScore((prevScore) => prevScore - 1);
     }
     else{
       setPlayerWin("draw");
     }
-  }
+  },[house,setScore,myChoice])
 
   useEffect(() => {
     const timer = counter>0 ? setInterval(()=> {
@@ -50,7 +50,7 @@ const Game = ({ score, myChoice, setScore }) => {
     return() =>{
       clearInterval(timer);
     };
-  }, [counter, house, Result]);
+  }, [counter, house,Result]);
 
   useEffect(() =>{
     newHousePick();
