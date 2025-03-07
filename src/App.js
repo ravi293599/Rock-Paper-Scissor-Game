@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-// import "./styles.scss";
+import React, { useState } from 'react';
 import Header from "./Components/Header";
 import Play from "./Components/Play";
 import Game from "./Components/Game";

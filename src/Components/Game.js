@@ -50,7 +50,7 @@ const Game = ({ score, myChoice, setScore }) => {
     return() =>{
       clearInterval(timer);
     };
-  }, [counter, house]);
+  }, [counter, house, Result]);
 
   useEffect(() =>{
     newHousePick();
@@ -61,7 +61,7 @@ const Game = ({ score, myChoice, setScore }) => {
         <span className='text'>You Picked</span>
         <div className={`icon icon-${myChoice} ${playerWin === "win" ? `icon icon-${myChoice}--winner`:''}`}></div>
       </div>
-      { (playerWin != "") && <div className='game__play'>
+      { (playerWin !== "") && <div className='game__play'>
       <span className='text'>{playerWin === "win" ? "You Win" :playerWin === "lose" ? "You Lose": "Its's a Draw"}</span>
       <Link to="/" className='play-again' onClick = { () => setHouse() }>Play Again</Link>
       </div>
