@@ -1,0 +1,49 @@
+@use 'variables';
+.model-container{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+
+    .model-box{
+        color:  variables.$dark-text;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 30px;
+        position: relative;
+        img{
+            width: 100%;
+        }
+        .model__header{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            .model-title{
+                width: 100%;
+            }
+            h1{
+                text-transform: uppercase;
+                margin: 0;
+                padding: 0;
+                font-size: 35px;
+                text-align: center;
+            }
+        }
+        .model-close{
+            align-self: center;
+            color:  variables.$dark-text;
+            position: absolute;
+            top: -1px;
+            right: 12px;
+            border: none;
+            img{
+                cursor: pointer;
+            }
+        }
+    }
+}

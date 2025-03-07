@@ -1,0 +1,63 @@
+@use 'variables';
+@use 'mixins';
+.play{
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    .triangle{
+        position: absolute;
+        align-self: center;
+        margin-top: 70px;
+    }
+    .items{
+        display: flex;
+        justify-content: center;
+
+        .icon{
+            height: 160px;
+            width: 160px;
+            border: 18px solid;
+            border-radius: 50%;
+            transition: transform .2s;
+
+            &-paper{
+                @include mixins.icon( variables.$imageP,  variables.$paper-gradient);
+                transform: translateX(1.5rem);
+                &:hover{
+                    transform: translateX(1.5rem) scale(1.1);
+                    transition: .4s;
+                }
+            }
+            &-scissors{
+                @include mixins.icon( variables.$imageS,  variables.$scissors-gradient);
+                transform: translate(-0.5rem,14rem);
+                &:hover {
+                    transform: translate(-0.5rem,14rem) scale(1.1);
+                    transition: .4s;
+                }
+            }
+            &-rock{
+                @include mixins.icon( variables.$imageR,  variables.$rock-gradient);
+                transform: translateX(-0.5rem);
+                &:hover {
+                    transform: translateX(-0.5rem) scale(1.1);
+                    transition: .4s;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 500px){
+    .play{
+        .items{
+            .icon {
+                height: 120px;
+                width: 120px;
+                border-radius: 50%;
+                transition: transform 0.2s;
+            }
+        }
+    }
+}

@@ -1,0 +1,178 @@
+@use 'variables';
+@use 'mixins';
+.game{
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    &__you{
+        display: flex;
+        flex-direction: column;
+        margin-right: 2.5rem;
+
+        .text{
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+        }
+        .icon{
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            border-color: transparent;
+            border: 25px solid;
+            background-size: 50% !important;
+
+            &-paper{
+                @include mixins.icon( variables.$imageP,  variables.$paper-gradient);
+                &--winner{
+                    @include mixins.bigShadow( variables.$paper-gradient)
+                }
+            }
+            &-scissors{
+                @include mixins.icon( variables.$imageS,  variables.$scissors-gradient);
+                &--winner{
+                    @include mixins.bigShadow( variables.$scissors-gradient)
+                }
+            }
+            &-rock{
+                @include mixins.icon( variables.$imageR,  variables.$rock-gradient);
+                &--winner{
+                    @include mixins.bigShadow( variables.$rock-gradient)
+                }
+            }
+        }
+    }
+    &__play{
+        display: flex;
+        flex-direction: column;
+        transition: color .2s;
+        .text{
+            text-transform: uppercase;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .play-again{
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: .8rem;
+            width: 150px;
+            margin: 0 auto;
+            &:hover{
+                color: #1a1abf;
+            }
+        }
+    }
+    &__house{
+        display: flex;
+        flex-direction: column;
+        margin-left: 2.5rem;
+
+        .text{
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+        }
+        .icon{
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            border-color: transparent;
+            border: 25px solid;
+            background-size: 50% !important;
+
+            &-paper{
+                @include mixins.icon( variables.$imageP,  variables.$paper-gradient);
+                &--winner{
+                    @include mixins.bigShadow( variables.$paper-gradient)
+                }
+            }
+            &-scissors{
+                @include mixins.icon( variables.$imageS,  variables.$scissors-gradient);
+                &--winner{
+                    @include mixins.bigShadow( variables.$scissors-gradient)
+                }
+            }
+            &-rock{
+                @include mixins.icon( variables.$imageR,  variables.$rock-gradient);
+                &--winner{
+                    @include mixins.bigShadow( variables.$rock-gradient)
+                }
+            }
+        }
+        .counter{
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            background-color: rgba($color: #000000, $alpha: 0.3);
+            font-size: 8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+@media (max-width: 500px){
+    .game {
+        margin-top: 30px;
+        gap: 30px;
+        // flex-direction: column;
+        &__you {
+            margin-right: 0;
+        }
+        &__play{
+            // margin: 15px 0;
+            position: absolute;
+            bottom: 120px;
+            margin: 0 auto;
+            left: 50%;
+            transform: translateX(-50%);
+            .text {
+                font-size: 1.5rem;
+            }
+        }
+        &__house {
+            margin-left: 0rem;
+            display: flex;
+            align-items: center;
+        }
+        .text {
+            margin-bottom: 10px;
+        }
+        .icon {
+            height: 120px;
+            width: 120px;
+            border-width: 15px;
+            margin-top: 35px;
+            &-paper{
+                &--winner{
+                    box-shadow: inset 0px 5px 6px grey, 0px 8px hsl(230, 89%, 47%), 0px 0px 0px 15px rgba(255, 255, 255, 0.07), 0px 0px 0px 30px rgba(255, 255, 255, 0.05), 0px 0px 0px 45px rgba(255, 255, 255, 0.025);
+                }
+            }
+            &-scissors{
+                &--winner{
+                    box-shadow: inset 0px 5px 6px grey, 0px 8px hsl(230, 89%, 47%), 0px 0px 0px 15px rgba(255, 255, 255, 0.07), 0px 0px 0px 30px rgba(255, 255, 255, 0.05), 0px 0px 0px 45px rgba(255, 255, 255, 0.025);
+                }
+            }
+            &-rock{
+                &--winner{
+                    box-shadow: inset 0px 5px 6px grey, 0px 8px hsl(230, 89%, 47%), 0px 0px 0px 15px rgba(255, 255, 255, 0.07), 0px 0px 0px 30px rgba(255, 255, 255, 0.05), 0px 0px 0px 45px rgba(255, 255, 255, 0.025);
+                }
+            }
+        }
+        .counter{
+            height: 120px;
+            width: 120px;
+            font-size: 2rem;
+            margin-top: 35px;
+        }
+    }
+}
