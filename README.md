@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+## Checkout the live link
+
+https://rock-paper-scissors-ravi.netlify.app/
+
 In the project directory, you can run:
 
 ### `npm start`
